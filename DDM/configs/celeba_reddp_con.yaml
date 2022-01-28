@@ -1,0 +1,20 @@
+Data:
+  dataset: celeba_re
+  batch_size: 250
+
+Model:
+  Unet:
+    type: Unet
+    kwargs:
+      num_steps: 4000
+      dim: 128
+      dim_mults: [1, 2, 4, 8]
+      dropout: 0.
+  
+  DiscreteDiffusion:
+    type: DiscreteDiffusion
+    kwargs:
+      timesteps: 4000
+    
+max_steps: 5000000
+lr: 0.00001

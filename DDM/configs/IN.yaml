@@ -1,0 +1,35 @@
+Data:
+  dataset: in
+  batch_size:  180
+
+Model:
+  Unet:
+    # type: UnetNoise
+    # kwargs:
+    #     category: 1024 
+    #     image_size: 16 
+    #     in_channels: 1
+    #     model_channels: 128
+    #     num_res_blocks: 2 
+    #     out_channels: 1024  # category
+    #     num_heads: 1
+    #     attention_resolutions: [4 ] 
+    #     dropout: 0.0 
+    #     channel_mult: [1,  2,  4,  8]
+    #     num_classes: 1000
+    type: Unet
+    kwargs:
+      num_classes: 1024
+      num_steps: 4000
+      dim: 128
+      dim_mults: [1, 2, 4, 8]
+      dropout: 0.
+      classes: 1000 
+  DiscreteDiffusion:
+    type: DiscreteDiffusionNoise
+    kwargs:
+      num_class: 1024
+      timesteps: 4000
+    
+max_steps: 570000
+lr: 0.0001

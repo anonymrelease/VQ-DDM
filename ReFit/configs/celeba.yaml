@@ -1,0 +1,32 @@
+model:
+  embed_dim: 256
+  n_embed: 1024 #323
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult:
+    - 1
+    - 1
+    - 2
+    - 2
+    - 4
+    num_res_blocks: 2
+    attn_resolutions:
+    - 16
+    dropout: 0.0
+  #ckpt_path: /home/hu/MultiDiff/vqgan/official/celeba_d.ckpt
+  ckpt_path: /home/hu/MultiDiff/vqgan/official/celeba.ckpt
+  rs_weight: /home/hu/MultiDiff/vqgan/celeba_emb_1024.ckpt
+  max_steps: 400000
+
+RS:
+  false
+
+Data:
+  dataset: celeba_image
+  batch_size: 4 #2GPU
+# lr = 2e-06

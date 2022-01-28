@@ -1,0 +1,22 @@
+Data:
+  dataset: bmnist
+  batch_size: 256
+
+Model:
+  Unet:
+    type: Unet
+    kwargs:
+      num_steps: 1000
+      dim: 64
+      dim_mults: [1, 4, 8]
+      dropout: 0.
+  
+  DiscreteDiffusion:
+    type: DiscreteDiffusion
+    kwargs:
+      timesteps: 1000
+    
+  max_steps: 2360000
+
+gpus:
+  [2,3]
